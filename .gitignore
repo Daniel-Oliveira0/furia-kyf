@@ -1,0 +1,22 @@
+# Ignorar ambientes virtuais
+venv/
+backend/venv/
+
+# Ignorar dependências do Node
+frontend/node_modules/
+
+# Ignorar arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar arquivos de editor
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Logs
+*.log
