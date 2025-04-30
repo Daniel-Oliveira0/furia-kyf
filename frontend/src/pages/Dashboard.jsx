@@ -7,7 +7,7 @@ import '../styles/Dashboard.css';
 
 function Dashboard() {
   const [busca, setBusca] = useState('');
-  const navigate = useNavigate(); // ✅ Agora está dentro do componente
+  const navigate = useNavigate(); 
 
   return (
     <div className="dashboard-container">
