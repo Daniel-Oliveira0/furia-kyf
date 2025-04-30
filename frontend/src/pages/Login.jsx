@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import '../styles/login.css'; 
+import { Link } from 'react-router-dom';
+import '../styles/Login.css';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -8,7 +9,6 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Login com:', email, senha);
-    // Aqui vai a lógica de autenticação depois
   };
 
   return (
@@ -31,6 +31,9 @@ function Login() {
         />
         <button type="submit">Login</button>
       </form>
+      <p className="login-link">
+        Não tem uma conta? <Link to="/register">Cadastre-se aqui</Link>
+      </p>
     </div>
   );
 }

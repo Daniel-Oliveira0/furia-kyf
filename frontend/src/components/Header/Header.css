@@ -1,0 +1,30 @@
+.dashboard-header {
+    background-color: #4f46e5;
+    color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 22px;
+    margin: 0;
+  }
+  
+  .logout-button {
+    background-color: #e24c11;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .logout-button:hover {
+    background-color: #9e2608;
+  }
+  
