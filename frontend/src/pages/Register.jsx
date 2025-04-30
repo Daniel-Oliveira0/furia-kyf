@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Input from '../components/Input/Input';
 import '../styles/Register.css';
 
 function Register() {
@@ -22,21 +23,38 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Dados do formulário:', formData);
-    // Enviar com fetch para backend 
   };
 
   return (
     <div className="register-container">
       <h2>Cadastro de Usuário</h2>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="nome" placeholder="Nome completo" onChange={handleChange} required />
-        <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
-        <input type="text" name="cpf" placeholder="CPF" onChange={handleChange} required />
-        <input type="text" name="endereco" placeholder="Endereço" onChange={handleChange} required />
-        <input type="text" name="interesses" placeholder="Interesses (ex: CS:GO, LoL)" onChange={handleChange} />
-        <input type="text" name="eventos" placeholder="Eventos que participou" onChange={handleChange} />
-        <input type="text" name="compras" placeholder="Compras relacionadas a e-sports" onChange={handleChange} />
-        <input type="password" name="senha" placeholder="Senha" onChange={handleChange} required />
+        <div className="form-columns">
+          <div className="input-wrapper">
+            <Input type="text" name="nome" placeholder="Nome completo" value={formData.nome} onChange={handleChange} />
+          </div>
+          <div className="input-wrapper">
+            <Input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
+          </div>
+          <div className="input-wrapper">
+            <Input type="text" name="cpf" placeholder="CPF" value={formData.cpf} onChange={handleChange} />
+          </div>
+          <div className="input-wrapper">
+            <Input type="text" name="endereco" placeholder="Endereço" value={formData.endereco} onChange={handleChange} />
+          </div>
+          <div className="input-wrapper">
+            <Input type="text" name="interesses" placeholder="Interesses (ex: CS:GO, LoL)" value={formData.interesses} onChange={handleChange} />
+          </div>
+          <div className="input-wrapper">
+            <Input type="text" name="eventos" placeholder="Eventos que participou" value={formData.eventos} onChange={handleChange} />
+          </div>
+          <div className="input-wrapper">
+            <Input type="text" name="compras" placeholder="Compras relacionadas a e-sports" value={formData.compras} onChange={handleChange} />
+          </div>
+          <div className="input-wrapper">
+            <Input type="password" name="senha" placeholder="Senha" value={formData.senha} onChange={handleChange} />
+          </div>
+        </div>
         <button type="submit">Cadastrar</button>
       </form>
       <p className="register-link">

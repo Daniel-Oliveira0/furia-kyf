@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header/Header';
 import Card from '../components/Card/Card';
 import Input from '../components/Input/Input';
@@ -6,6 +7,7 @@ import '../styles/Dashboard.css';
 
 function Dashboard() {
   const [busca, setBusca] = useState('');
+  const navigate = useNavigate(); // ✅ Agora está dentro do componente
 
   return (
     <div className="dashboard-container">
@@ -30,6 +32,21 @@ function Dashboard() {
           placeholder="Digite aqui..."
         />
       </div>
+
+      <button
+        onClick={() => navigate('/upload')}
+        style={{
+          marginTop: '20px',
+          padding: '12px 20px',
+          backgroundColor: 'var(--primary-color)',
+          color: '#fff',
+          border: 'none',
+          borderRadius: '8px',
+          cursor: 'pointer'
+        }}
+      >
+        Enviar Documentos
+      </button>
     </div>
   );
 }
