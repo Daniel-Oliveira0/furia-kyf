@@ -1,13 +1,18 @@
 import os
-import uuid
 from fastapi import UploadFile
+from uuid import uuid4
 
-async def save_file(file: UploadFile):
-    unique_filename = f"{uuid.uuid4()}.pdf"  
-    file_location = f"uploads/{unique_filename}"
-    
-    with open(file_location, "wb") as f:
-        content = await file.read()
-        f.write(content)
-    
-    return file_location, file.filename
+UPLOAD_DIR = "uploaded_files"
+
+def save_file(file: UploadFile):
+    if not os.path.exists(UPLOAD_DIR):
+        os.makedirs(UPLOAD_DIR)
+
+    extension = file.filename.split(".")[-1]
+    filename = f"{uuid4()}.{extension}"
+    file_path = os.path.join(UPLOAD_DIR, filename)
+
+    with open(file_path, "wb") as buffer:
+        buffer.write(file.file.read())
+
+    return file_path, file.filename  

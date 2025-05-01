@@ -1,10 +1,15 @@
 from fastapi import FastAPI
-from routes.upload import router as upload_router
+from fastapi.middleware.cors import CORSMiddleware
+from routes import upload
 
 app = FastAPI()
 
-@app.get("/")
-def root():
-    return {"message": "API da FURIA está rodando!"}
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Em produção, substitua por origem específica
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-app.include_router(upload_router, prefix="/upload")
+app.include_router(upload.router, prefix="/upload", tags=["Upload"])
