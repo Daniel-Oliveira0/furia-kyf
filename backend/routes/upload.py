@@ -35,7 +35,7 @@ async def upload_documents(files: list[UploadFile] = File(...)):
     
     verification_results = []
     for saved_file, original_filename in zip(saved_files, original_filenames):
-        await asyncio.sleep(2)  # Aguarda assíncronamente
+        await asyncio.sleep(2)  
         result = verify_document(original_filename)  
         verification_results.append({
             "file": saved_file,
